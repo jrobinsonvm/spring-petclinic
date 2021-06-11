@@ -1,0 +1,13 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-pets
+spec:
+  rules:
+  - host: pets.apps.mytanzudemo.com
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: pets-app
+          servicePort: 80
