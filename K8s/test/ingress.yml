@@ -1,0 +1,13 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-pets1
+spec:
+  rules:
+  - host: pets1.dev.haas-401.pez.vmware.com
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: pets1-app
+          servicePort: 80

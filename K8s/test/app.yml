@@ -1,0 +1,32 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: pets1-app
+spec:
+  selector:
+    app: pets1
+    tier: frontend
+  ports:
+  - protocol: "TCP"
+    port: 80
+    targetPort: 8080
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pets1-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pets1
+  template:
+    metadata:
+      labels:
+        app: pets1
+        tier: frontend
+    spec:
+      containers:
+      - name: pets1-app
+        image: "registry.sys.buildmodernapps.com/nonprod-devteam/pets-app:latest"
