@@ -29,4 +29,4 @@ spec:
     spec:
       containers:
       - name: pets-app
-        image: "harbor.buildmodernapps.com/nonprod-devteam/pets-app:latest"
+        image: "registry.sys.buildmodernapps.com/nonprod-devteam/pets-app:latest"
